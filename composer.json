@@ -1,0 +1,13 @@
+{
+    "name": "bennetgallein/ts3ab-api",
+    "description": "OOP API Wrapper for the TS3AudioBot WebAPI",
+    "type": "library",
+    "license": "LGPL-3.0",
+    "authors": [
+        {
+            "name": "bennetgallein",
+            "email": "bennet@intranetproject.net"
+        }
+    ],
+    "require": {}
+}
