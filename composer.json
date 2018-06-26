@@ -3,11 +3,21 @@
     "description": "OOP API Wrapper for the TS3AudioBot WebAPI",
     "type": "library",
     "license": "LGPL-3.0",
+    "minimum-stability": "dev",
+    "prefer-stable" : true,
     "authors": [
         {
             "name": "bennetgallein",
             "email": "bennet@intranetproject.net"
         }
     ],
-    "require": {}
+    "require": {
+        "php": ">=7.1",
+        "bennetgallein/angle-framework": "master"
+    },
+    "autoload": {
+        "psr-4": {
+            "TS3AB\\": "src/"
+        }
+    }
 }
