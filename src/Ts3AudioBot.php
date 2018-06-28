@@ -23,7 +23,8 @@ class Ts3AudioBot {
 
     private $username;
     private $realm;
-    private $access_token;
+    private $accesstoken;
+    private $commandExecutor;
 
     /**
      * Ts3AudioBot constructor.
@@ -33,6 +34,7 @@ class Ts3AudioBot {
     public function __construct($ip, int $port = 8180) {
         $this->ip = $ip;
         $this->port = $port;
+        $this->commandExecutor = new Ts3CommandCaller($this);
     }
 
     /**
@@ -43,14 +45,14 @@ class Ts3AudioBot {
         $token = explode(":", $token);
         $this->username =  $token[0];
         $this->realm = $token[1];
-        $this->access_token = $token[2];
+        $this->accesstoken = $token[2];
     }
 
     /**
      * @return string
      */
     private function generateHeader(): string {
-        return "Authorization: Basic " . base64_encode($this->username . ":" . $this->access_token);
+        return "Authorization: Basic " . base64_encode($this->username . ":" . $this->accesstoken);
     }
 
     /**
@@ -59,14 +61,18 @@ class Ts3AudioBot {
     public function request($path) {
         /** @noinspection PhpVariableNamingConventionInspection */
         $ch = curl_init();
-        $path = "http://" . $this->ip . ":" . $this->port . "/api/" . $path;
+        $requestpath = "http://" . $this->ip . ":" . $this->port . "/api/" . $path;
         echo $path;
-        curl_setopt($ch, CURLOPT_URL, $path);
+        curl_setopt($ch, CURLOPT_URL, $requestpath);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array($this->generateHeader()));
         $output = curl_exec($ch);
         curl_close($ch);
         var_dump($output);
+    }
+
+    public function getCommandExecutor() {
+        return $this->commandExecutor;
     }
 
     /**
