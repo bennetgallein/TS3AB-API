@@ -26,6 +26,8 @@ class Ts3AudioBot {
     private $accesstoken;
     private $commandExecutor;
 
+    public $botid = 0;
+
     /**
      * Ts3AudioBot constructor.
      * @param string $ip
@@ -57,19 +59,32 @@ class Ts3AudioBot {
 
     /**
      * @param $path
+     * @return mixed
      */
     public function request($path) {
         /** @noinspection PhpVariableNamingConventionInspection */
         $ch = curl_init();
-        $requestpath = "http://" . $this->ip . ":" . $this->port . "/api/" . $path;
-        echo $path;
+        $requestpath = "http://" . $this->ip . ":" . $this->port . "/api/bot/use/" . $this->botid . "/(/" . $path;
         curl_setopt($ch, CURLOPT_URL, $requestpath);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array($this->generateHeader()));
         $output = curl_exec($ch);
         curl_close($ch);
-        var_dump($output);
+        return ($output);
     }
+
+    public function rawRequest($path) {
+        /** @noinspection PhpVariableNamingConventionInspection */
+        $ch = curl_init();
+        $requestpath = "http://" . $this->ip . ":" . $this->port . "/api/" . $path;
+        curl_setopt($ch, CURLOPT_URL, $requestpath);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array($this->generateHeader()));
+        $output = curl_exec($ch);
+        curl_close($ch);
+        return ($output);
+    }
+
 
     public function getCommandExecutor() {
         return $this->commandExecutor;
