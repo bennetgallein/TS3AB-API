@@ -7,6 +7,7 @@
  */
 
 namespace TS3AB;
+use TS3AB\Commands\History;
 
 
 /**
@@ -172,5 +173,10 @@ class Ts3CommandCaller {
     public function help() {
         return $this->instance->request("help");
     }
-    // all commands until line 317 (https://github.com/Splamy/TS3AudioBot/blob/develop/TS3AudioBot/MainCommands.cs)
+
+    public function history() {
+        return new History($this->instance);
+    }
+
+    // all commands until line 477 (https://github.com/Splamy/TS3AudioBot/blob/develop/TS3AudioBot/MainCommands.cs)
 }
