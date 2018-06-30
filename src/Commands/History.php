@@ -24,10 +24,11 @@ class History {
     }
 
     /**
+     * @param int $id
      * @return mixed
      */
-    public function add() {
-        return $this->instance->request("history/add");
+    public function add(int $id) {
+        return $this->instance->request("history/add/" . $id);
     }
 
     /**
@@ -45,38 +46,43 @@ class History {
     }
 
     /**
+     * @param int $id
      * @return mixed
      */
-    public function delete() {
-        return $this->instance->request("history/delete");
+    public function delete(int $id) {
+        return $this->instance->request("history/delete/" . $id);
     }
 
     /**
+     * @param int $count
+     * @param int $userdbid
      * @return mixed
      */
-    public function historyFrom() {
-        return $this->instance->request("history/from");
+    public function historyFrom(int $count, int $userdbid) {
+        return $this->instance->request("history/from/" . $count . "/" . $userdbid);
     }
 
     /**
+     * @param int $id
      * @return mixed
      */
-    public function historyID() {
-        return $this->instance->request("history/id");
-    }
-
-    /**
-     * @return mixed
-     */
-    public function last() {
-        return $this->instance->request("history/last");
+    public function historyID(int $id) {
+        return $this->instance->request("history/id/" . $id);
     }
 
     /**
      * @param int $count
      * @return mixed
      */
-    public function getLast(int $count) {
+    public function last(int $count) {
+        return $this->instance->request("history/last/" . $count);
+    }
+
+    /**
+     * @param int $count
+     * @return mixed
+     */
+    public function playLast(int $count) {
         return $this->instance->request("history/last/" . $count);
     }
 
