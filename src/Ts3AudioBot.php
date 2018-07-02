@@ -86,6 +86,9 @@ class Ts3AudioBot {
     }
 
 
+    /**
+     * @return Ts3CommandCaller
+     */
     public function getCommandExecutor() {
         return $this->commandExecutor;
     }

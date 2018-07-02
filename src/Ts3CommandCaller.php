@@ -8,6 +8,7 @@
 
 namespace TS3AB;
 use TS3AB\Commands\History;
+use TS3AB\Commands\ListC;
 
 
 /**
@@ -88,7 +89,7 @@ class Ts3CommandCaller {
     /**
      * @return mixed
      */
-    public function list() {
+    public function listBots() {
         return $this->instance->rawRequest("bot/list");
     }
 
@@ -272,6 +273,13 @@ class Ts3CommandCaller {
      */
     public function history() {
         return new History($this->instance);
+    }
+
+    /**
+     * @return ListC
+     */
+    public function list() {
+        return new ListC($this->instance);
     }
 
     // all commands until line 477 (https://github.com/Splamy/TS3AudioBot/blob/develop/TS3AudioBot/MainCommands.cs)
