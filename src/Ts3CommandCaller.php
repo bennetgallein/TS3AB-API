@@ -7,8 +7,10 @@
  */
 
 namespace TS3AB;
+
 use TS3AB\Commands\History;
 use TS3AB\Commands\ListC;
+use TS3AB\Commands\User;
 
 
 /**
@@ -34,6 +36,27 @@ class Ts3CommandCaller {
      */
     public function play(string $link) {
         return $this->instance->request("play/" . rawurlencode($link));
+    }
+
+    /**
+     * @return mixed
+     */
+    public function pause() {
+        return $this->instance->request("pause");
+    }
+
+    /**
+     * @return mixed
+     */
+    public function song() {
+        return $this->instance->request("song");
+    }
+
+    /**
+     * @return mixed
+     */
+    public function stop() {
+        return $this->instance->request("stop");
     }
 
     /**
@@ -201,69 +224,6 @@ class Ts3CommandCaller {
     /**
      * @return mixed
      */
-    public function getuserUIDbyID() {
-        return $this->instance->request("getuser/uid/byid");
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getuserNamebyID() {
-        return $this->instance->request("getuser/name/byid");
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getuserDBIDbyID() {
-        return $this->instance->request("getuser/dbid/byid");
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getuserChannelbyID() {
-        return $this->instance->request("getuser/channel/byid");
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getuserAllbyID() {
-        return $this->instance->request("getuser/all/byid");
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getuserIDbyName() {
-        return $this->instance->request("getuser/id/byname");
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getuserAllbyName() {
-        return $this->instance->request("getuser/all/byname");
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getUserNamebyDBID() {
-        return $this->instance->request("getuser/name/bydbid");
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getUserUIDbyDBID() {
-        return $this->instance->request("getuser/uid/bydbid");
-    }
-
-    /**
-     * @return mixed
-     */
     public function help() {
         return $this->instance->request("help");
     }
@@ -282,5 +242,11 @@ class Ts3CommandCaller {
         return new ListC($this->instance);
     }
 
-    // all commands until line 477 (https://github.com/Splamy/TS3AudioBot/blob/develop/TS3AudioBot/MainCommands.cs)
+    /**
+     * @return User
+     */
+    public function user() {
+        return new User($this->instance);
+    }
+
 }

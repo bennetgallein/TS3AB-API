@@ -7,6 +7,7 @@
  */
 
 namespace TS3AB\Commands;
+
 use TS3AB\Ts3AudioBot;
 
 
@@ -153,4 +154,33 @@ class ListC {
     public function loopOff() {
         return $this->instance->request("list/loop/off");
     }
+
+    /**
+     * @return mixed
+     */
+    public function next() {
+        return $this->instance->request("next");
+    }
+
+    /**
+     * @return mixed
+     */
+    public function random() {
+        return $this->instance->request("random");
+    }
+
+    /**
+     * @return mixed
+     */
+    public function randomOn() {
+        return $this->instance->request("random/on");
+    }
+
+    /**
+     * @return mixed
+     */
+    public function randomOff() {
+        return $this->instance->request("random/off");
+    }
+
 }
