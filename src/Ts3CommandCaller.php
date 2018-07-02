@@ -48,6 +48,13 @@ class Ts3CommandCaller {
     /**
      * @return mixed
      */
+    public function unpause() {
+        return $this->instance->request("play");
+    }
+
+    /**
+     * @return mixed
+     */
     public function song() {
         return $this->instance->request("song");
     }
