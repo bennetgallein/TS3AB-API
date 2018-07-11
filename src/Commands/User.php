@@ -89,4 +89,46 @@ class User {
     public function getUserUIDbyDBID() {
         return $this->instance->request("getuser/uid/bydbid");
     }
+
+    /**
+     * @return mixed
+     */
+    public function getmyid() {
+        return $this->instance->request("getmy/id");
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getmyuid() {
+        return $this->instance->request("getmy/uid");
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getmyname() {
+        return $this->instance->request("getmy/name");
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getmydbid() {
+        return $this->instance->request("getmy/dbid");
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getmychannel() {
+        return $this->instance->request("getmy/channel");
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getmyall() {
+        return $this->instance->request("getmy/all");
+    }
 }

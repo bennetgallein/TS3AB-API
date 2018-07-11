@@ -98,15 +98,15 @@ class Ts3CommandCaller {
     /**
      * @return mixed
      */
-    public function connectTo() {
-        return $this->instance->request("bot/connect/to");
+    public function connectTo($templateName) {
+        return $this->instance->request("bot/connect/to/" . rawurlencode($templateName));
     }
 
     /**
      * @return mixed
      */
-    public function connectNew() {
-        return $this->instance->request("bot/connect/new");
+    public function connectNew($ip) {
+        return $this->instance->request("bot/connect/new/" . rawurlencode($ip));
     }
 
     /**
@@ -133,8 +133,8 @@ class Ts3CommandCaller {
     /**
      * @return mixed
      */
-    public function name() {
-        return $this->instance->request("bot/name");
+    public function name($name) {
+        return $this->instance->request("bot/name/" . rawurlencode($name));
     }
 
     /**
@@ -147,8 +147,8 @@ class Ts3CommandCaller {
     /**
      * @return mixed
      */
-    public function save() {
-        return $this->instance->request("bot/save");
+    public function save($templateName) {
+        return $this->instance->request("bot/save/" . rawurlencode($templateName));
     }
 
     /**
@@ -189,51 +189,11 @@ class Ts3CommandCaller {
     /**
      * @return mixed
      */
-    public function getmyid() {
-        return $this->instance->request("getmy/id");
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getmyuid() {
-        return $this->instance->request("getmy/uid");
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getmyname() {
-        return $this->instance->request("getmy/name");
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getmydbid() {
-        return $this->instance->request("getmy/dbid");
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getmychannel() {
-        return $this->instance->request("getmy/channel");
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getmyall() {
-        return $this->instance->request("getmy/all");
-    }
-
-    /**
-     * @return mixed
-     */
     public function help() {
         return $this->instance->request("help");
     }
+
+
 
     /**
      * @return History
