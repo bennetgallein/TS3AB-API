@@ -3,6 +3,8 @@ OOP API Wrapper for the TS3AudioBot WebAPI
 
 This Wrapper is meant to make work with the TS3AudioBot WebAPI over PHP easier. It provides (in the future) all functions that the bot supports.
 
+*** Warning: *** This is based on the development branch! Do not use funtions that are only available there or you'll encounter some bad errors! 
+
 ## Intention
 This is more of a sideproject than a dedicated one, since I needed an easier way to communicate between a PHP-Backend with the Bot's API.
 
