@@ -9,6 +9,9 @@ This Wrapper is meant to make work with the TS3AudioBot WebAPI over PHP easier. 
 This is more of a sideproject than a dedicated one, since I needed an easier way to communicate between a PHP-Backend with the Bot's API.
 
 ## Installation
+
+PHP Version Required: 7.1
+
 Install view composer:
 ```
 composer require bennetgallein/ts3ab-api
