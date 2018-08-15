@@ -99,14 +99,14 @@ class Ts3CommandCaller {
      * @return mixed
      */
     public function connectTo($templateName) {
-        return $this->instance->request("bot/connect/to/" . rawurlencode($templateName));
+        return $this->instance->request("bot/connect/template/" . rawurlencode($templateName));
     }
 
     /**
      * @return mixed
      */
     public function connectNew($ip) {
-        return $this->instance->request("bot/connect/new/" . rawurlencode($ip));
+        return $this->instance->request("bot/connect/to/" . rawurlencode($ip));
     }
 
     /**
@@ -159,6 +159,13 @@ class Ts3CommandCaller {
     }
 
     /**
+     * @return mixed
+     */
+    public function disconnect() {
+        return $this->instance->request("bot/disconnect");
+    }
+
+    /**
      * @param $botid
      */
     public function use($botid) {
@@ -175,13 +182,6 @@ class Ts3CommandCaller {
     /**
      * @return mixed
      */
-    public function disconnect() {
-        return $this->instance->request("disconnect");
-    }
-
-    /**
-     * @return mixed
-     */
     public function eval() {
         return $this->instance->request("eval");
     }
@@ -192,8 +192,6 @@ class Ts3CommandCaller {
     public function help() {
         return $this->instance->request("help");
     }
-
-
 
     /**
      * @return History
