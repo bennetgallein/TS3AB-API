@@ -12,15 +12,15 @@ use TS3AB\Ts3AudioBot;
 
 
 /**
- * Class ListC
+ * Class Playlist
  * @package TS3AB\Commands
  */
-class ListC {
+class Playlist {
 
     private $instance;
 
     /**
-     * ListC constructor.
+     * Playlist constructor.
      * @param Ts3AudioBot $instance
      */
     public function __construct(Ts3AudioBot $instance) {
@@ -136,6 +136,7 @@ class ListC {
 
     /**
      * @return mixed
+     * @deprecated
      */
     public function loop() {
         return $this->instance->request("list/loop");
@@ -143,6 +144,7 @@ class ListC {
 
     /**
      * @return mixed
+     * @deprecated
      */
     public function loopOn() {
         return $this->instance->request("list/loop/on");
@@ -150,6 +152,7 @@ class ListC {
 
     /**
      * @return mixed
+     * @deprecated
      */
     public function loopOff() {
         return $this->instance->request("list/loop/off");

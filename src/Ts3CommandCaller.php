@@ -9,7 +9,7 @@
 namespace TS3AB;
 
 use TS3AB\Commands\History;
-use TS3AB\Commands\ListC;
+use TS3AB\Commands\Playlist;
 use TS3AB\Commands\User;
 
 
@@ -201,10 +201,10 @@ class Ts3CommandCaller {
     }
 
     /**
-     * @return ListC
+     * @return Playlist
      */
-    public function list() {
-        return new ListC($this->instance);
+    public function playlist() {
+        return new Playlist($this->instance);
     }
 
     /**
