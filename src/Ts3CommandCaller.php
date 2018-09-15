@@ -218,21 +218,23 @@ class Ts3CommandCaller {
     }
 
     /**
+     * @param $template
      * @param $string
      * @param $value
      * @return mixed
      */
-    public function getBotSettings($string, $value) {
-        return $this->instance->request("settings/bot/get/" . $this->instance->getID() . "/" . $string . "/" . $value);
+    public function getBotSettings($template, $string, $value) {
+        return $this->instance->request("settings/bot/get/" . $template . "/" . $string . "/" . $value);
     }
 
     /**
+     * @param $template
      * @param $string
      * @param $value
      * @return mixed
      */
-    public function setBotSettings($string, $value) {
-        return $this->instance->request("settings/bot/set/" . $this->instance->getID() . "/" . $string . "/" . $value);
+    public function setBotSettings($template, $string, $value) {
+        return $this->instance->request("settings/bot/set/" . $template . "/" . $string . "/" . $value);
     }
 
     /**
