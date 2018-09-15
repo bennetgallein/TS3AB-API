@@ -220,11 +220,10 @@ class Ts3CommandCaller {
     /**
      * @param $template
      * @param $string
-     * @param $value
      * @return mixed
      */
-    public function getBotSettings($template, $string, $value) {
-        return $this->instance->request("settings/bot/get/" . $template . "/" . $string . "/" . $value);
+    public function getBotSettings($template, $string) {
+        return $this->instance->request("settings/bot/get/" . $template . "/" . $string);
     }
 
     /**
