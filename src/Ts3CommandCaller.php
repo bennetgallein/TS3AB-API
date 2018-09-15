@@ -194,6 +194,65 @@ class Ts3CommandCaller {
     }
 
     /**
+     * @return mixed
+     */
+    public function settings() {
+        return $this->instance->rawRequest("settings");
+    }
+
+    /**
+     * @param $value
+     * @return mixed
+     */
+    public function getSettings($value) {
+        return $this->instance->rawRequest("settings/get/" . $value);
+    }
+
+    /**
+     * @param $string
+     * @param $value
+     * @return mixed
+     */
+    public function setSettings($string, $value) {
+        return $this->instance->rawRequest("settings/set/" . $string . "/" . $value);
+    }
+
+    /**
+     * @param $string
+     * @param $value
+     * @return mixed
+     */
+    public function getBotSettings($string, $value) {
+        return $this->instance->request("settings/bot/get/" . $this->instance->getID() . "/" . $string . "/" . $value);
+    }
+
+    /**
+     * @param $string
+     * @param $value
+     * @return mixed
+     */
+    public function setBotSettings($string, $value) {
+        return $this->instance->request("settings/bot/set/" . $this->instance->getID() . "/" . $string . "/" . $value);
+    }
+
+    /**
+     * @param $value
+     * @return mixed
+     */
+    public function getGlobalSettings($value) {
+        return $this->instance->rawRequest("settings/global/get/" . $value);
+    }
+
+    /**
+     * @param $string
+     * @param $value
+     * @return mixed
+     */
+    public function setGlobalSettings($string, $value) {
+        return $this->instance->rawRequest("settings/global/set/" . $string . "/" . $value);
+    }
+
+    /**
      * @return History
      */
     public function history() {

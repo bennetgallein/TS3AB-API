@@ -120,4 +120,11 @@ class Ts3AudioBot {
     public function setIp($ip): void {
         $this->ip = $ip;
     }
+
+    /**
+     * @return int
+     */
+    public function getID() {
+        return $this->botid;
+    }
 }
