@@ -60,6 +60,19 @@ class Ts3CommandCaller {
     }
 
     /**
+     * @param int $volume
+     * @return bool|mixed
+     */
+    public function volume(int $volume) {
+        $volume = (int) $volume;
+        if ($volume >= 0 && $volume <= 100) {
+            return $this->instance->request("volume/" . $volume);
+        } else {
+            return false;
+        }
+    }
+
+    /**
      * @return mixed
      */
     public function stop() {
