@@ -42,7 +42,7 @@ class Ts3AudioBot {
     /**
      * @param $token
      */
-    public function basicAuth($token): void {
+    public function basicAuth($token) {
         $this->token = $token;
         $token = explode(":", $token);
         $this->username =  $token[0];
