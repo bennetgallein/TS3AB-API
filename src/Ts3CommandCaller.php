@@ -227,7 +227,7 @@ class Ts3CommandCaller {
      * @return mixed
      */
     public function setSettings($string, $value) {
-        return $this->instance->rawRequest("settings/set/" . $string . "/" . $value);
+        return $this->instance->rawRequest("settings/set/" . $string . "/" . rawurlencode($value));
     }
 
     /**
@@ -246,7 +246,7 @@ class Ts3CommandCaller {
      * @return mixed
      */
     public function setBotSettings($template, $string, $value) {
-        return $this->instance->request("settings/bot/set/" . $template . "/" . $string . "/" . $value);
+        return $this->instance->request("settings/bot/set/" . rawurlencode($template) . "/" . $string . "/" . rawurlencode($value));
     }
 
     /**
@@ -254,7 +254,7 @@ class Ts3CommandCaller {
      * @return mixed
      */
     public function getGlobalSettings($value) {
-        return $this->instance->rawRequest("settings/global/get/" . $value);
+        return $this->instance->rawRequest("settings/global/get/" . rawurlencode($value));
     }
 
     /**
@@ -263,7 +263,7 @@ class Ts3CommandCaller {
      * @return mixed
      */
     public function setGlobalSettings($string, $value) {
-        return $this->instance->rawRequest("settings/global/set/" . $string . "/" . $value);
+        return $this->instance->rawRequest("settings/global/set/" . $string . "/" . rawurlencode($value));
     }
 
     /**
