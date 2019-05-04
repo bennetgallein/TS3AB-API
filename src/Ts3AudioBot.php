@@ -31,9 +31,9 @@ class Ts3AudioBot {
     /**
      * Ts3AudioBot constructor.
      * @param string $ip
-     * @param int $port
+     * @param $port
      */
-    public function __construct($ip, int $port = 8180) {
+    public function __construct($ip, $port = 8180) {
         $this->ip = $ip;
         $this->port = $port;
         $this->commandExecutor = new Ts3CommandCaller($this);
