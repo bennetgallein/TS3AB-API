@@ -64,7 +64,9 @@ class Ts3AudioBot {
     public function request($path) {
         /** @noinspection PhpVariableNamingConventionInspection */
         $ch = curl_init();
-        $requestpath = "http://" . $this->ip . ":" . $this->port . "/api/bot/use/" . $this->botid . "/(/" . $path;
+        defined("USE_HTTPS") or define("USE_HTTPS", false);
+        $requestpath = (USE_HTTPS == true ? "https://" : "http://");
+        $requestpath .= $this->ip . ":" . $this->port . "/api/bot/use/" . $this->botid . "/(/" . $path;
         curl_setopt($ch, CURLOPT_URL, $requestpath);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array($this->generateHeader()));
