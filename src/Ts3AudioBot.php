@@ -25,6 +25,7 @@ class Ts3AudioBot {
     private $realm;
     private $accesstoken;
     private $commandExecutor;
+    private $timeout;
 
     public $botid = 0;
 
@@ -33,10 +34,11 @@ class Ts3AudioBot {
      * @param string $ip
      * @param $port
      */
-    public function __construct($ip, $port = 8180) {
+    public function __construct($ip, $port = 8180, $timeout = 5) {
         $this->ip = $ip;
         $this->port = $port;
         $this->commandExecutor = new Ts3CommandCaller($this);
+        $this->timeout = $timeout;
     }
 
     /**
@@ -81,6 +83,8 @@ class Ts3AudioBot {
         $requestpath = "http://" . $this->ip . ":" . $this->port . "/api/" . $path;
         curl_setopt($ch, CURLOPT_URL, $requestpath);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 0); 
+        curl_setopt($ch, CURLOPT_TIMEOUT, $this->timeout);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array($this->generateHeader()));
         $output = curl_exec($ch);
         curl_close($ch);
