@@ -71,6 +71,8 @@ class Ts3AudioBot {
         $requestpath .= $this->ip . ":" . $this->port . "/api/bot/use/" . $this->botid . "/(/" . $path;
         curl_setopt($ch, CURLOPT_URL, $requestpath);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $this->timeout); 
+        curl_setopt($ch, CURLOPT_TIMEOUT, $this->timeout);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array($this->generateHeader()));
         $output = curl_exec($ch);
         curl_close($ch);
@@ -83,7 +85,7 @@ class Ts3AudioBot {
         $requestpath = "http://" . $this->ip . ":" . $this->port . "/api/" . $path;
         curl_setopt($ch, CURLOPT_URL, $requestpath);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 0); 
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $this->timeout); 
         curl_setopt($ch, CURLOPT_TIMEOUT, $this->timeout);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array($this->generateHeader()));
         $output = curl_exec($ch);
