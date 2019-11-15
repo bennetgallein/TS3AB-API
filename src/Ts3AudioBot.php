@@ -48,8 +48,7 @@ class Ts3AudioBot {
         $this->token = $token;
         $token = explode(":", $token);
         $this->username =  $token[0];
-        $this->realm = $token[1];
-        $this->accesstoken = $token[2];
+        $this->accesstoken = $token[1];
     }
 
     /**
